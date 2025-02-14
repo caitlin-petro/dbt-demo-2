@@ -1,6 +1,6 @@
 name: Astronomer CI - Deploy DAG and dbt code to Astro
 
-#on: 
+on: 
   push:
     branches:
       - main
