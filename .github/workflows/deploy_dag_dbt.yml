@@ -24,4 +24,4 @@ jobs:
       with:
         deployment-id: cm74gkh6q037z01hqgwut2tuu
         root-folder: astro-project/
-        parse: true
+        parse: false
