@@ -17,4 +17,4 @@ jobs:
       uses: astronomer/deploy-action@v0.9.0
       with:
         deployment-id: cm74gkh6q037z01hqgwut2tuu
-        root-folder: /astro-project/
+        root-folder: astro-project/
