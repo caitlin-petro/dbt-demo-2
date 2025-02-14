@@ -1,0 +1,12 @@
+my_profile_name:
+    outputs:
+        my_target_name:
+            account: GP21411.us-east-1
+            database: '{{ env_var(''SNOWFLAKE_ROLE_DATABASE_SCHEMA'') }}'
+            password: '{{ env_var(''SNOWFLAKE_PASSWORD'') }}'
+            role: '{{ env_var(''SNOWFLAKE_ROLE_USER_ROLE'') }}'
+            schema: '{{ env_var(''SNOWFLAKE_ROLE_DATABASE_SCHEMA'') }}'
+            type: snowflake
+            user: '{{ env_var(''SNOWFLAKE_ROLE_USER_ROLE'') }}'
+            warehouse: '{{ env_var(''SNOWFLAKE_ROLE_WAREHOUSE'') }}'
+    target: my_target_name
