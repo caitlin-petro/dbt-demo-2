@@ -8,11 +8,7 @@ profile_config = ProfileConfig(
     profile_name="my_profile_name",
     target_name="my_target_name",
     profile_mapping=SnowflakeUserPasswordProfileMapping(
-        conn_id="sf_fe_sa",
-        # profile_args={
-        #     "database": "demo_dbt",
-        #     "schema": "public"
-        #     },
+        conn_id="snowflake",
     ),
 )
 
@@ -20,7 +16,7 @@ airflow_home = os.environ["AIRFLOW_HOME"]
 
 dbt_snowflake_python_dag = DbtDag(
     project_config=ProjectConfig(
-        f"{airflow_home}/dags/cosmos/dbt/dbtproject",
+        f"{airflow_home}/dbt/dbtproject",
     ),
     operator_args={"install_deps": True},
     profile_config=profile_config,
