@@ -5,4 +5,4 @@ SELECT
 FROM {{ ref('prepped_data') }}
 GROUP BY
   BOOKING_DATE,
-  HOTEL
+  HOTE
