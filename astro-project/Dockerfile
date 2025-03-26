@@ -1,4 +1,4 @@
-FROM quay.io/astronomer/astro-runtime:12.7.1
+FROM quay.io/astronomer/astro-runtime:12.7.0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-u", "-x", "-c"]
 
