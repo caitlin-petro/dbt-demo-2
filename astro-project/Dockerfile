@@ -22,3 +22,5 @@ USER astro
 
 # Copy entire project directory
 COPY --chown=astro:0 . .
+
+#test
