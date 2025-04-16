@@ -8,7 +8,7 @@ profile_config = ProfileConfig(
     profile_name="my_profile_name",
     target_name="my_target_name",
     profile_mapping=SnowflakeUserPasswordProfileMapping(
-        conn_id="snowflake_fieldengineer",
+        conn_id="snowflake_dev",
     ),
 )
 
