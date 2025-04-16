@@ -28,6 +28,6 @@ dbt_snowflake_dag = DbtDag(
     schedule=[Dataset("s3://my-bucket/my-key/")],
     start_date=datetime(2023, 9, 10),
     catchup=False,
-    dag_id="dbt_cosmos_snowflake_dag_2",
+    dag_id="dbt_cosmos_snowflake_dag_child",
     tags=["cosmos"],
 )

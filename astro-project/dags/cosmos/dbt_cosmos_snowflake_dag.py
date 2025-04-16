@@ -5,9 +5,6 @@ from cosmos.profiles import SnowflakeUserPasswordProfileMapping
 from airflow.operators.empty import EmptyOperator
 from airflow.datasets import Dataset
 
-dataset = Dataset(uri="s3://my-bucket/my-key/")
-
-
 profile_config = ProfileConfig(
     profile_name="my_profile_name",
     target_name="my_target_name",
@@ -31,20 +28,10 @@ with DbtDag(
     schedule="@hourly",
     start_date=datetime(2023, 9, 10),
     catchup=False,
-    dag_id="dbt_cosmos_snowflake_dag",
+    dag_id="dbt_cosmos_snowflake_dag_parent",
     tags=["cosmos"],
 ) as dbt_snowflake_dag:
     publish_task = EmptyOperator(
         task_id="publish_dataset",
-        outlets=[dataset],  # Publish the Dataset here
+        outlets=[Dataset(uri="s3://my-bucket/my-key/")],  # Publish the Dataset here
     )
-
-#with dbt_snowflake_dag:
-#    producer_task = EmptyOperator(
-#        task_id="trigger_downstream",
-#        outlets=[Dataset("s3://my-bucket/my-key/")]
-#    )
-
-    # Chain it to all terminal dbt tasks safely
-#    for task in dbt_snowflake_dag.leaves:
-#        task >> producer_task
