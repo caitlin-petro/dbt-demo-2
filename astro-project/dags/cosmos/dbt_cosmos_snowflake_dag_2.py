@@ -2,6 +2,7 @@ from datetime import datetime
 import os
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, RenderConfig
 from cosmos.profiles import SnowflakeUserPasswordProfileMapping
+from airflow.datasets import Dataset
 
 
 profile_config = ProfileConfig(
@@ -24,7 +25,7 @@ dbt_snowflake_dag = DbtDag(
         dbt_executable_path=f"{airflow_home}/dbt_venv/bin/dbt",
     ),
     render_config=RenderConfig(select=["path:models/analysis", "path:models/transform", "path:models/downstream"]),
-    schedule="@hourly",
+    schedule=[Dataset("s3://my-bucket/my-key/")],
     start_date=datetime(2023, 9, 10),
     catchup=False,
     dag_id="dbt_cosmos_snowflake_dag_2",
