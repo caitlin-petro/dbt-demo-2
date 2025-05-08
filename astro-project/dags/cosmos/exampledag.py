@@ -97,4 +97,4 @@ def example_astronauts():
 
 
 # Instantiate the DAG
-example_astronauts(
+example_astronauts()
